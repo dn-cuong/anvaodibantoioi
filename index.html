@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Wave Text Color Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('src/kkk.png');
+            background-size: cover;
+            /* Hình ảnh sẽ được thu nhỏ để hiển thị toàn bộ */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #2c2c2c;
+            /* Changed background color */
+            position: relative;
+            /* Add position relative to the body */
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* Khoảng cách giữa các hộp */
+            width: 70%;
+            /* Đặt chiều rộng của flex-container */
+            height: 70vh;
+            /* Đặt chiều cao của flex-container */
+            margin-bottom: 10px;
+            /* Khoảng cách dưới cùng */
+            position: relative;
+            /* Add position relative */
+            z-index: 1;
+            /* Ensure flex-container is on top of the background */
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            /* background-color: lightblue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row-2 {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            /* Chiều rộng của hàng 2 */
+        }
+
+        .row-2 .outer-box {
+            flex: 1;
+            /* Chia đều không gian trong hàng */
+        }
+
+        .row-3 {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            /* Chiều rộng của hàng 3 */
+        }
+
+        .row-3 .box {
+            flex: 1;
+            /* Chia đều không gian trong hàng */
+        }
+
+        .col-1,
+        .col-5 {
+            width: 100%;
+            /* Chiều rộng của cột 1 và cột 5 */
+            font-size: 2vw;
+            font-family: 'Noto Sans', sans-serif;
+            /* Apply Noto Sans font family */
+            font-weight: 700;
+            /* Apply Bold font weight */
+            color: antiquewhite
+        }
+
+        .col-5 {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing;
+            animation-duration: 5s;
+            animation-timing-function: steps(30, end);
+            animation-fill-mode: forwards;
+            animation-delay: 23s;
+        }
+
+        .col-1 {
+
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing;
+            animation-duration: 5s;
+            animation-timing-function: steps(30, end);
+            animation-fill-mode: forwards;
+            animation-delay: 7s;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .outer-box {
+            width: 100%;
+            /* Kích thước cho hộp ngoài cùng */
+            display: flex;
+            flex-direction: column;
+            /* Sắp xếp thành cột */
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+        }
+
+        .text {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 3.5vw;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: bold;
+            position: relative;
+            background: linear-gradient(90deg, rgb(224, 135, 1), rgb(61, 102, 216), rgb(240, 0, 0));
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: wave 2s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        .cat-container {
+            width: 100%;
+            /* Kích thước 100% của hộp chứa mèo */
+            height: 100%;
+            /* Kích thước 100% của hộp chứa mèo */
+        }
+
+        .cat {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: spin 4s linear forwards, fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .col-3 {
+            filter: contrast(25) blur(1px);
+            overflow: hidden;
+        }
+
+        .word {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-family: 'Comic Sans MS', cursive;
+            color: whitesmoke;
+            transform: translate(-50%, -50%);
+            font-size: 5vw;
+            white-space: nowrap;
+            animation: word 40s infinite ease-in-out;
+            /* Thay đổi thời gian animation thành 10s */
+            opacity: 0;
+            /* Bắt đầu với opacity = 0 để ẩn các từ */
+        }
+
+        /* Đặt animation-delay cho từng từ */
+        .word:nth-child(1) {
+            animation-delay: 0.5s;
+            /* Delay cho từ đầu tiên */
+        }
+
+        .word:nth-child(2) {
+            animation-delay: 2.5s;
+            /* Delay cho từ thứ hai */
+        }
+
+        .word:nth-child(3) {
+            animation-delay: 4.5s;
+            /* Delay cho từ thứ ba */
+        }
+
+        /* Tiếp tục điều chỉnh animation-delay cho các từ còn lại tương tự */
+        .word:nth-child(4) {
+            animation-delay: 6.5s;
+        }
+
+        .word:nth-child(5) {
+            animation-delay: 8.5s;
+        }
+
+        .word:nth-child(6) {
+            animation-delay: 10.5s;
+        }
+
+        .word:nth-child(7) {
+            animation-delay: 12.5s;
+        }
+
+        .word:nth-child(8) {
+            animation-delay: 14.5s;
+        }
+
+        .word:nth-child(9) {
+            animation-delay: 16.5s;
+        }
+
+        .word:nth-child(10) {
+            animation-delay: 18.5s;
+        }
+
+        .word:nth-child(11) {
+            animation-delay: 20.5s;
+        }
+
+        .word:nth-child(12) {
+            animation-delay: 22.5s;
+        }
+
+        .word:nth-child(13) {
+            animation-delay: 24.5s;
+        }
+
+        .word:nth-child(14) {
+            animation-delay: 26.5s;
+        }
+
+        .word:nth-child(15) {
+            animation-delay: 28.5s;
+        }
+
+        .word:nth-child(16) {
+            animation-delay: 30.5s;
+        }
+
+        .word:nth-child(17) {
+            animation-delay: 32.5s;
+        }
+
+        .word:nth-child(18) {
+            animation-delay: 34.5s;
+        }
+
+        .word:nth-child(19) {
+            animation-delay: 36.5s;
+        }
+
+        /* Keyframes cho hiệu ứng */
+        /* Keyframes cho hiệu ứng */
+        @keyframes fadeInOut {
+
+            0%,
+            20%,
+            80%,
+            100% {
+                opacity: 0;
+            }
+
+            5%,
+            95% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes wordFadeInOut {
+
+            0%,
+            20%,
+            80%,
+            100% {
+                opacity: 0;
+            }
+
+            5%,
+            95% {
+                opacity: 1;
+            }
+        }
+
+        /* Floating animated background */
+        .floating-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            /* Ensure the background is behind the flex-container */
+        }
+
+        .floating-background li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .floating-background li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 0s;
+        }
+
+        .floating-background li:nth-child(2) {
+            left: 10%;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .floating-background li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 4s;
+        }
+
+        .floating-background li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-duration: 18s;
+        }
+
+        .floating-background li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 0s;
+        }
+
+        .floating-background li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .floating-background li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .floating-background li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .floating-background li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .floating-background li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            font-size: 40px;
+            /* Increase the font size of the icon */
+            line-height: 40px;
+            /* Match the line height with the font size */
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        /* Gift box */
+        .gift-box-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            /* Ensure the gift box is on top of everything else */
+        }
+
+        .gift-box {
+            width: 300px;
+            height: 250px;
+            background-image: url('src/gif/com--unscreen.gif');
+            /* Replace 'path/to/your/image.jpg' with your actual image path */
+            background-size: cover;
+            /* Hình ảnh sẽ cover hết phần nền của gift box */
+            object-fit: contain;
+            /* Đảm bảo hình ảnh không bị biến dạng */
+        }
+
+        .gift-box-text {
+            font-family: 'Noto Sans', sans-serif;
+            /* Apply Noto Sans font family */
+            font-weight: 700;
+            /* Apply Bold font weight */
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInOverlay {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Màu trắng với độ mờ */
+            z-index: 999;
+            /* Đảm bảo overlay hiển thị phía trên tất cả các phần tử khác */
+
+            justify-content: center;
+            align-items: center;
+            animation: fadeInOverlay 0.5s ease forwards;
+            /* Sử dụng animation để hiển thị overlay trong 0.5s */
+        }
+
+        /* Thêm animation cho nút đóng overlay */
+        @keyframes fadeInCloseButton {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .overlay .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .inner-rectangle {
+            width: 80%;
+            height: 80%;
+
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 40vw;
+            height: 80vh;
+            perspective: 1000px;
+            /* Add a perspective value to create a 3D effect */
+        }
+
+        .flip-card-inner {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            /* Preserve the 3D transformations */
+        }
+
+        .flip-card.clicked .flip-card-inner {
+            transform: rotateY(180deg);
+            /* Rotate the inner element 180 degrees when clicked */
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            /* Hide the back face of the flip card */
+        }
+
+        .flip-card-front {
+            /* background-color: #bbb; */
+            background-image: url(src/acs.png);
+            background-size: cover;
+            border-radius: 60px;
+            color: black;
+            font-size: 23px;
+            font-family: 'Maven Pro', sans-serif;
+            overflow-y: auto;
+            /* Add scrollbar if content exceeds the card's height */
+            /* Hide the scrollbar */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* Internet Explorer and Edge */
+        }
+
+        .flip-card-front::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and Opera */
+        }
+
+        .flip-card-back {
+            color: white;
+            transform: rotateY(180deg);
+            /* Initially rotate the back side 180 degrees */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Hide any overflowing content */
+        }
+
+        .flip-card-back img {
+            max-width: 100%;
+            /* Tối đa chiều rộng là 100% của phần tử cha */
+            max-height: 100%;
+            /* Tối đa chiều cao là 100% của phần tử cha */
+            object-fit: cover;
+            /* Hiển thị toàn bộ hình ảnh trong phần tử cha, có thể cắt bớt phần thừa */
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 1100px) {
+
+            /* iPad Mini 6 landscape mode */
+            .flip-card {
+                width: 70vw;
+                /* Change the width for iPad Mini 6 */
+            }
+
+            body {
+                background-image: url(src/hihi.png);
+                background-size: cover;
+            }
+
+            .col-1,
+            .col-5 {
+                font-size: 25px;
+            }
+
+            .text {
+                font-weight: bold;
+            }
+
+            .flip-card-front {
+                background-image: url(src/c.png);
+            }
+        }
+
+        .g {
+            font-size: 21px;
+        }
+
+        .h {
+            margin-top: 5%;
+            font-weight: bold;
+        }
+
+        .flip-card-front .hh {
+            font-family: 'Maven Pro', sans-serif;
+            overflow-y: auto;
+            /* Add scrollbar if content exceeds the card's height */
+            /* Hide the scrollbar */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* Internet Explorer and Edge */
+            margin-top: 5%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .flip-card-front h1 {
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .h {
+                font-size: 20px;
+                margin-top: 15%;
+                margin-left: 3%;
+                margin-right: 3%;
+
+            }
+
+            .g {
+                font-size: 13px;
+            }
+
+            body {
+                background-image: url(src/dsf.png);
+                background-size: cover;
+            }
+
+            .flip-card {
+                width: 70vw;
+                /* Change the width for iPad Mini 6 */
+            }
+
+            .gift-box-text {
+                font-size: 26px;
+            }
+
+            .col-1,
+            .col-5 {
+                font-size: 16px;
+                overflow-wrap: break-word;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" style="display: none;">
+        <div class="popup">
+            <div class="flip-card" onclick="this.classList.toggle('clicked')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p class="h">ĐÂY RÙI ĐỢI MÃI, ĐỌC ĐII</p>
+                        <p class="g">🤔 Hmm nói sao ta, trước hết thì tớ cảm ơn cậu đã dành thời gian ra vào cái trang
+                            web này của tớ =)).
+                            Yep, dù nó có chút không đẹp lắm nhưng mà tớ cũng cố hết sức rồi hehe. Thật sự là không biết
+                            nói gì nữa ý =)))
+                            Cảm ơn cậu đã là 1 phần trong quãng thời gian cấp 3 này của tớ.
+                            Dù học với nhau từ năm lớp 10 nhưng mà hình như gần hết kì năm lớp 11 bọn mình mới có tin
+                            nhắn đầu tiên với nhau thì phải, nhưng mà càng về sau thì khi được làm chung dự án, về nhà
+                            Quỳnh và những thứ khác nữa đã giúp tớ biết thêm phần nào về cậu. Đặc biệt là rất rất rất
+                            cảm ơn hôm chụp kỷ yếu vừa rồi, cậu chụp hình riêng cùng tớ, welp, cho tớ một kỷ niệm khó
+                            quên được trước khi bước sang hành trình du học Mỹ của mình. À mà hôm đó ae có hú hét gì mà
+                            khiến cậu không thoải mái lắm thì cậu bỏ qua nha hihiihihih. Năm mới, tết đến xuân về, tớ
+                            chúc cậu một năm thật bùng nổ, ăn ngon, ngủ kĩ, xinh hơn, học tập ngày càng thăng tiến và đỗ
+                            vào trường đại học mà mình mong muốn nhé. Không biết nói gì nữa tại điều muốn nói tớ nói hết
+                            rồi.
+                            À cái này còn mặt sau ý =))) cậu ấn vào cái flip card này để xem nốt quà nhé heheheh. Cảm ơn
+                            cậu đã đọc tới tận đây. Chúc cậu năm mới vui vẻ nhaa!!!! </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="src/ga.png" alt="Back Side Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="close-button">&#10006;</span>
+    </div>
+    </div>
+    <div class="floating-background">
+        <ul class="circles">
+            <li>
+                <script>
+                    function showGiftBox() {
+                        var elementsToHide = document.querySelectorAll('.flex-container');
+                        elementsToHide.forEach(element => {
+                            element.style.display = 'none';
+                        });
+
+                        var giftBoxContainer = document.createElement('div');
+                        giftBoxContainer.className = 'gift-box-container';
+
+                        var giftBox = document.createElement('div');
+                        giftBox.className = 'gift-box';
+                        giftBox.style.cursor = 'pointer'; // Change cursor to pointer when hovering over the gift box
+
+                        var giftBoxText = document.createElement('p');
+                        giftBoxText.className = 'gift-box-text';
+                        giftBoxText.textContent = '🤫🧏‍♂️ Mở đê';
+
+                        giftBoxContainer.appendChild(giftBox);
+                        giftBoxContainer.appendChild(giftBoxText);
+
+                        document.body.appendChild(giftBoxContainer);
+
+                        // Event listener for clicking on the gift box
+                        giftBox.addEventListener('click', function () {
+
+                            console.log("1231232");
+                            popup(); // Show overlay when the gift box is clicked
+
+                        });
+                        // Event listener for closing the overlay
+                        document.querySelector('.close-button').addEventListener('click', function () {
+                            var overlay = document.querySelector('.overlay');
+                            overlay.style.display = 'none'; // Hide overlay
+                        });
+
+                        var overlay = document.querySelector('.overlay');
+                        overlay.style.display = 'visible'; // Show overlay
+                    }
+
+                    // Popup function to show overlay
+                    function popup() {
+                        var elementsToHide = document.querySelectorAll('.flex-container');
+                        elementsToHide.forEach(element => {
+                            element.style.display = 'none';
+                        });
+
+                        var overlay = document.querySelector('.overlay');
+                        overlay.style.display = 'block'; // Show overlay
+                        var giftBoxContainer = document.createElement('div');
+                        giftBoxContainer.className = 'gift-box-container';
+
+                        // Add gift box content here
+
+                        document.body.appendChild(giftBoxContainer);
+
+                    }
+                </script>
+            </li>
+            <li>💀</li>
+            <li>🔥</li>
+            <li>☝️</li>
+            <li>🤓</li>
+            <li>🤫</li>
+            <li>🧏‍♂️</li>
+            <li>🤫</li>
+            <li>🧏</li>
+            <li>👽</li>
+        </ul>
+        <marquee behavior="scroll" direction="right">
+            <img class="running" src="src/gif/running.gif" alt=""
+                style="width: 100px; animation: run 1s linear infinite; ">
+        </marquee>
+    </div>
+
+    <div class="flex-container">
+        <div class="box col-1" onclick="playAudio()">
+            Nghe tí nhạc đê &nbsp; <i class="fa fa-headphones"></i> &nbsp; (Ấn vào đây đi)
+        </div>
+
+        <audio id="audio" src="aa.mp3"></audio>
+
+        <script>
+            function playAudio() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+        </script>
+
+        <div class="row-2">
+            <div class="outer-box">
+                <div class="cat-container">
+                    <img src="src/gif/cat_dancing.gif" class="cat">
+                </div>
+            </div>
+            <div class="outer-box">
+                <div class="word">Hello</div>
+                <div class="word">Myx</div>
+                <div class="word">Nay</div>
+                <div class="word">Tớ</div>
+                <div class="word">Có</div>
+                <div class="word">Một</div>
+                <div class="word">Món</div>
+                <div class="word">Quà</div>
+                <div class="word">Muốn</div>
+                <div class="word">Tặng</div>
+                <div class="word">Cậu</div>
+                <div class="word">Nhân</div>
+                <div class="word">Dịp</div>
+                <div class="word">Năm</div>
+                <div class="word">Mới</div>
+                <div class="word">Mong</div>
+                <div class="word">Cậu</div>
+                <div class="word">Đón</div>
+                <div class="word">Nhận</div>
+            </div>
+            <div class="outer-box">
+                <div class="cat-container">
+                    <img src="src/gif/cat_dancing.gif" class="cat">
+                </div>
+            </div>
+        </div>
+        <div class="box col-5" onclick="showGiftBox()">☝️🤓 Bắt đầu nhé? Ấn tiếp vào đây đi</div>
+        <script>
+            function showGiftBox() {
+                var elementsToHide = document.querySelectorAll('.flex-container');
+                elementsToHide.forEach(element => {
+                    element.style.display = 'none';
+                });
+
+                var giftBoxContainer = document.createElement('div');
+                giftBoxContainer.className = 'gift-box-container';
+
+                var giftBox = document.createElement('div');
+                giftBox.className = 'gift-box';
+                giftBox.style.cursor = 'pointer'; // Change cursor to pointer when hovering over the gift box
+
+                var giftBoxText = document.createElement('p');
+                giftBoxText.className = 'gift-box-text';
+                giftBoxText.textContent = '🤫🧏‍♂️ Mở đê';
+
+                giftBoxContainer.appendChild(giftBox);
+                giftBoxContainer.appendChild(giftBoxText);
+
+                document.body.appendChild(giftBoxContainer);
+
+                // Event listener for clicking on the gift box
+                giftBox.addEventListener('click', function () {
+                    console.log("1231232");
+                    popup(); // Show overlay when the gift box is clicked
+                });
+
+                // Event listener for closing the overlay
+                document.querySelector('.close-button').addEventListener('click', function () {
+                    var overlay = document.querySelector('.overlay');
+                    overlay.style.display = 'none'; // Hide overlay
+                });
+            }
+
+            // Popup function to show overlay
+            function popup() {
+                var elementsToHide = document.querySelectorAll('.flex-container');
+                elementsToHide.forEach(element => {
+                    element.style.display = 'none';
+                });
+
+                var overlay = document.querySelector('.overlay');
+                overlay.style.display = 'flex'; // Show overlay
+
+                var giftBoxContainer = document.createElement('div');
+                giftBoxContainer.className = 'gift-box-container';
+
+                // Add gift box content here
+
+                document.body.appendChild(giftBoxContainer);
+            }
+        </script>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var words = document.querySelectorAll(".word"); // Chọn tất cả các từ trong cột col-2
+            var displayDuration = 1000; // Thời gian hiển thị mỗi từ (1.5 giây)
+            var fadeDuration = 250; // Thời gian biến mất mỗi từ (0.5 giây)
+            var totalDuration = displayDuration + fadeDuration; // Thời gian tổng cộng mỗi từ
+
+            function animateWords() {
+                words.forEach(function (word, index) {
+                    setTimeout(function () {
+                        word.style.opacity = "1"; // Hiển thị từ
+                        setTimeout(function () {
+                            word.style.opacity = "0"; // Biến mất từ
+                        }, displayDuration);
+                    }, index * totalDuration);
+                });
+
+                // Gọi lại hàm animateWords sau khi hoàn thành một chu kỳ
+                setTimeout(animateWords, words.length * totalDuration);
+            }
+
+            animateWords(); // Bắt đầu hiệu ứng lặp vô hạn
+        });
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy ra element của văn bản
+            const textElement = document.querySelector(".text");
+
+            // Bắt đầu hiệu ứng đánh máy
+            textElement.addEventListener("animationend", () => {
+                const cats = document.querySelectorAll(".cat");
+                cats.forEach(cat => {
+                    cat.style.animationPlayState = "paused"; // Dừng hiệu ứng xoay vòng
+                });
+            });
+        });
+    </script>
+
+    <!-- Add a cat at the bottom -->
+</body>
+
+</html>
